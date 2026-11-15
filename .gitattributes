@@ -1,0 +1,25 @@
+# Fim de linha: o repositório guarda LF. A Pro Max (Windows) grava CRLF e isso gerava conflito de arquivo inteiro no sincronizador (15/11/2026).
+# Com text=auto o git converte CRLF para LF ao adicionar; arquivos que já estão com CRLF
+# no índice não são tocados (nada aparece como modificado por causa desta regra).
+* text=auto eol=lf
+*.sh text eol=lf
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
+*.mp4 binary
+*.mov binary
+*.wav binary
+*.mp3 binary
+*.m4a binary
+*.pdf binary
+*.docx binary
+*.ttc binary
+*.ttf binary
+*.otf binary
+*.blend binary
+*.zip binary
