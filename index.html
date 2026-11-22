@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mini Mundo do Kikico · desenhos longos e calmos para a família</title>
-<meta name="description" content="Desenhos longos e calmos para a família que precisa de 15 minutos sem culpa. Kikico, Nina e Tião em histórias do dia a dia, para crianças de 1 a 4 anos.">
+<title>Mini Mundo do Kikico · um respiro para os pais</title>
+<meta name="description" content="Desenhos longos e calmos para crianças de 1 a 4 anos, e um respiro para quem cuida delas. Kikico, Nina e Tião, sem susto, sem pressa e com final.">
 <meta name="theme-color" content="#FFF6EC">
 <meta name="color-scheme" content="light">
 <link rel="canonical" href="https://kikico.com.br/">
@@ -12,166 +12,316 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Mini Mundo do Kikico">
 <meta property="og:url" content="https://kikico.com.br/">
-<meta property="og:title" content="Mini Mundo do Kikico">
-<meta property="og:description" content="Desenhos longos e calmos para a família que precisa de 15 minutos sem culpa.">
+<meta property="og:title" content="Mini Mundo do Kikico · um respiro para os pais">
+<meta property="og:description" content="Um desenho calmo para eles. Quinze minutos de respiro para vocês.">
 <meta property="og:image" content="https://kikico.com.br/assets/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Uma sala aconchegante com seis puffs coloridos em forma das letras KIKICO; o menino Kikico e os cachorros Nina e Tião descansam sobre eles.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preload" href="assets/fontes/fredoka.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fontes/nunito.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="estilo.css?v=3">
+<link rel="stylesheet" href="estilo.css">
 </head>
 <body>
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- céu fixo: nuvens à deriva de dia, estrelas quando a página escurece -->
+<div class="ceu" aria-hidden="true">
+  <div class="nuvem n1"></div><div class="nuvem n2"></div><div class="nuvem n3"></div>
+  <div class="estrelas"></div>
+</div>
 
 <header class="topo">
   <a class="marca" href="#sala" aria-label="Mini Mundo do Kikico, início">
     <img src="assets/avatar.webp" width="40" height="40" alt="">
     <span>Mini Mundo do Kikico</span>
   </a>
+  <nav class="menu" aria-label="Seções">
+    <a href="#pais">Para os pais</a>
+    <a href="#momento">Seu momento</a>
+    <a href="#pausa">Pausa</a>
+    <a href="#turma">A turma</a>
+    <a href="#familia">Em família</a>
+  </nav>
   <a class="botao botao-pequeno" href="https://www.youtube.com/@minimundodokikico" rel="noopener">Assistir</a>
 </header>
 
+<!-- controle de som: sempre à mão, nunca liga sozinho -->
+<div class="som" id="som" hidden>
+  <button class="som-botao" id="som-botao" type="button" aria-pressed="false" aria-label="Ligar música suave">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path class="ico-nota" d="M9 17.5V6l10-2v11.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="17.5" r="2.5" fill="currentColor"/><circle cx="16.5" cy="15.5" r="2.5" fill="currentColor"/><path class="ico-corte" d="M3 3l18 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <span class="som-texto">Música suave</span>
+  </button>
+  <label class="som-vol"><span class="so-leitor">Volume da música</span><input id="som-vol" type="range" min="0" max="100" value="55"></label>
+</div>
+<div class="convite" id="convite" role="dialog" aria-label="Música suave" hidden>
+  <p><strong>Quer uma música bem suave</strong> enquanto você passeia pelo site?</p>
+  <div class="convite-botoes">
+    <button class="botao botao-pequeno" id="convite-sim" type="button">Sim, ligar</button>
+    <button class="botao botao-pequeno botao-claro" id="convite-nao" type="button">Agora não</button>
+  </div>
+</div>
+
 <main id="conteudo">
 
-<!-- 1. A sala e os puffs -->
-<section id="sala" class="cena cena-sala" data-cena aria-labelledby="t-sala">
-  <div class="palco">
-    <div class="mundo" role="img" aria-label="Uma sala aconchegante onde seis puffs coloridos e sorridentes formam a palavra KIKICO no tapete; ao lado, o menino Kikico acena, a cachorrinha Nina sorri e o cachorro Tião descansa.">
-      <picture>
-        <source media="(orientation: portrait)" srcset="assets/sala-vertical.webp">
-        <img class="fundo" src="assets/sala.webp" srcset="assets/sala-960.webp 960w, assets/sala.webp 1672w" sizes="100vw" width="1672" height="941" alt="" fetchpriority="high">
-      </picture>
-      <img class="t-tiao-fundo" data-entra="0.52 0.66" src="assets/tiao.webp" width="1000" height="408" alt="" aria-hidden="true">
-      <div class="fila" aria-hidden="true">
-        <img class="puff p1" data-entra="0.04 0.22" src="assets/puff-k1.webp" width="290" height="310" alt="">
-        <img class="puff p2" data-entra="0.10 0.28" src="assets/puff-i1.webp" width="171" height="310" alt="">
-        <img class="puff p3" data-entra="0.16 0.34" src="assets/puff-k2.webp" width="281" height="313" alt="">
-        <img class="puff p4" data-entra="0.22 0.40" src="assets/puff-i2.webp" width="180" height="311" alt="">
-        <img class="puff p5" data-entra="0.28 0.46" src="assets/puff-c.webp" width="282" height="320" alt="">
-        <img class="puff p6" data-entra="0.34 0.52" src="assets/puff-o.webp" width="305" height="320" alt="">
+<!-- 1. A sala: puffs que tocam -->
+<section id="sala" class="sala" aria-labelledby="t-sala">
+  <div class="mundo" id="mundo">
+    <picture>
+      <source media="(orientation: portrait)" srcset="assets/sala-vertical.webp">
+      <img class="fundo" data-prof="8" src="assets/sala.webp" srcset="assets/sala-960.webp 960w, assets/sala.webp 1672w" sizes="100vw" width="1672" height="941" alt="" fetchpriority="high">
+    </picture>
+    <img class="t-tiao-fundo" src="assets/tiao.webp" width="1000" height="408" alt="" aria-hidden="true">
+    <div class="fila" data-prof="18">
+      <button class="puff p1" data-i="0" type="button" aria-label="Puff K"><img src="assets/puff-k1.webp" width="290" height="310" alt=""></button>
+      <button class="puff p2" data-i="1" type="button" aria-label="Puff I"><img src="assets/puff-i1.webp" width="171" height="310" alt=""></button>
+      <button class="puff p3" data-i="2" type="button" aria-label="Puff K"><img src="assets/puff-k2.webp" width="281" height="313" alt=""></button>
+      <button class="puff p4" data-i="3" type="button" aria-label="Puff I"><img src="assets/puff-i2.webp" width="180" height="311" alt=""></button>
+      <button class="puff p5" data-i="4" type="button" aria-label="Puff C"><img src="assets/puff-c.webp" width="282" height="320" alt=""></button>
+      <button class="puff p6" data-i="5" type="button" aria-label="Puff O"><img src="assets/puff-o.webp" width="305" height="320" alt=""></button>
+    </div>
+    <div class="turma-sala" data-prof="26" aria-hidden="true">
+      <img class="t-kikico" src="assets/kikico.webp" width="460" height="878" alt="">
+      <img class="t-nina" src="assets/nina.webp" width="480" height="803" alt="">
+    </div>
+    <div class="notas" id="notas" aria-hidden="true"></div>
+  </div>
+  <div class="sala-texto">
+    <p class="selo">Para crianças de 1 a 4 anos</p>
+    <h1 id="t-sala">Um desenho calmo para eles.<br><em>Um respiro para você.</em></h1>
+    <p class="promessa">Histórias longas, lentas e sem susto, que terminam na hora certa e convidam a brincar. <strong>Quinze minutos sem culpa.</strong></p>
+    <div class="botoes">
+      <a class="botao" href="#pais">Por que é diferente?</a>
+      <a class="botao botao-claro" href="https://www.youtube.com/@minimundodokikico" rel="noopener">Ver no YouTube</a>
+    </div>
+  </div>
+  <p class="dica-puff" id="dica-puff"><span aria-hidden="true">👇</span> Toque nos puffs. Eles escrevem KIKICO e cantam.</p>
+</section>
+
+<!-- 2. Para os pais: três promessas -->
+<section id="pais" class="bloco" aria-labelledby="t-pais">
+  <div class="miolo">
+    <p class="sobretitulo" data-rev>Feito pensando em quem aperta o play</p>
+    <h2 id="t-pais" data-rev>Você pode dar o play sem aquele aperto no peito.</h2>
+    <p class="lead" data-rev>Sabemos como é a rotina: o jantar para fazer, a roupa para dobrar, a cabeça pedindo um minuto. O Mini Mundo foi desenhado para esse minuto valer a pena.</p>
+    <div class="cartoes">
+      <article class="cartao" data-rev style="--d:.05s" tabindex="0">
+        <div class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="#FDB324" opacity=".25"/><path d="M14 38c6-14 30-14 36 0" fill="none" stroke="#D45711" stroke-width="5" stroke-linecap="round"/><circle cx="24" cy="26" r="3.2" fill="#2B1D12"/><circle cx="40" cy="26" r="3.2" fill="#2B1D12"/></svg></div>
+        <h3>Sem susto</h3>
+        <p>Som baixo, sem grito, buzina ou efeito estourando. Nada que acelere o coração de ninguém.</p>
+      </article>
+      <article class="cartao" data-rev style="--d:.15s" tabindex="0">
+        <div class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="#7DA0C0" opacity=".25"/><circle cx="32" cy="32" r="18" fill="none" stroke="#7DA0C0" stroke-width="4"/><path d="M32 20v13l8 5" fill="none" stroke="#4A3525" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Sem pressa</h3>
+        <p>Planos longos: a imagem fica parada o tempo de a criança olhar de verdade e entender o que vê.</p>
+      </article>
+      <article class="cartao" data-rev style="--d:.25s" tabindex="0">
+        <div class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="#B9728F" opacity=".25"/><path d="M18 33l9 9 19-21" fill="none" stroke="#B9728F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Com final</h3>
+        <p>Começo, meio e fim. E, no fim, um convite gentil para desligar a tela e brincar junto.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Agitado x calmo: demonstração -->
+<section id="calmo" class="bloco bloco-claro" aria-labelledby="t-calmo">
+  <div class="miolo">
+    <p class="sobretitulo" data-rev>Veja a diferença</p>
+    <h2 id="t-calmo" data-rev>O que muda quando o desenho é calmo</h2>
+    <p class="lead" data-rev>Arraste a barra. À esquerda, o ritmo de muitos desenhos de tela. À direita, o ritmo do Mini Mundo.</p>
+    <div class="comparador" id="comparador" data-rev>
+      <div class="lado lado-agitado" aria-hidden="true">
+        <span class="forma f1"></span><span class="forma f2"></span><span class="forma f3"></span><span class="forma f4"></span><span class="forma f5"></span><span class="forma f6"></span>
+        <em class="rotulo">Agitado</em>
       </div>
-      <div class="turma-sala" aria-hidden="true">
-        <img class="t-kikico" data-entra="0.56 0.70" src="assets/kikico.webp" width="460" height="878" alt="">
-        <img class="t-nina" data-entra="0.60 0.74" src="assets/nina.webp" width="480" height="803" alt="">
+      <div class="lado lado-calmo" aria-hidden="true">
+        <img class="c-kikico" src="assets/kikico.webp" width="460" height="878" alt="">
+        <img class="c-tiao" src="assets/tiao.webp" width="1000" height="408" alt="">
+        <span class="lua-calma"></span>
+        <em class="rotulo">Calmo</em>
       </div>
+      <div class="alca" id="alca" aria-hidden="true"><span></span></div>
+      <input id="corte" class="corte" type="range" min="4" max="96" value="50" aria-label="Comparar desenho agitado e desenho calmo">
     </div>
-    <div class="sala-texto">
-      <p class="dica" aria-hidden="true" data-entra="-1 0" data-sai="0.02 0.12">Role devagar</p>
-      <h1 id="t-sala">Mini Mundo do Kikico</h1>
-      <p class="promessa">Desenhos longos e calmos para a família que precisa de <strong>15 minutos sem culpa</strong>.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 2. A turma -->
-<section id="turma" class="cena cena-turma" data-cena aria-labelledby="t-turma">
-  <div class="palco">
-    <h2 id="t-turma" class="titulo-cena" data-entra="0 0.1">Quem mora nessa sala</h2>
-    <div class="turma">
-      <figure class="bicho kikico" data-entra="0.08 0.28" data-sai-celular="0.34 0.42">
-        <img src="assets/kikico.webp" width="460" height="878" alt="Kikico, um menino de cabelo preto cacheado e jardineira caramelo, acenando." loading="lazy">
-        <figcaption>
-          <h3>Kikico</h3>
-          <p>Tem 2 anos e quer saber de tudo: rodas, bichos, chuva, o feijão que brota. Puxa os carrinhos por um barbante.</p>
-        </figcaption>
-      </figure>
-      <figure class="bicho nina" data-entra="0.40 0.56" data-sai-celular="0.62 0.70">
-        <img src="assets/nina.webp" width="480" height="803" alt="Nina, uma cachorrinha golden clara com um lacinho lilás, sentada e sorrindo." loading="lazy">
-        <figcaption>
-          <h3>Nina</h3>
-          <p>A cachorrinha sempre acesa, de lacinho lilás. Corre na frente e volta para ver se todo mundo vem junto.</p>
-        </figcaption>
-      </figure>
-      <figure class="bicho tiao" data-entra="0.68 0.84">
-        <img src="assets/tiao.webp" width="1000" height="408" alt="Tião, um golden grandão de bandana azul-acinzentada, deitado e relaxado." loading="lazy">
-        <figcaption>
-          <h3>Tião</h3>
-          <p>O grandão de bandana. Desengonçado e sem pressa: deita, espera, observa. É quem ensina a calma.</p>
-        </figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- 3. O que é um desenho calmo -->
-<section id="calmo" class="cena cena-calmo" data-cena aria-labelledby="t-calmo">
-  <div class="palco">
-    <img class="fundo-calmo" src="assets/calma.webp" srcset="assets/calma-960.webp 960w, assets/calma.webp 1672w" sizes="100vw" width="1672" height="941" alt="Kikico deitado no tapete olhando um livrinho, com Tião encostado nele e Nina cochilando ao lado." loading="lazy">
-    <div class="calmo-texto">
-      <h2 id="t-calmo" data-entra="0.02 0.14">O que é um desenho calmo</h2>
-      <ul class="pontos">
-        <li data-entra="0.12 0.20" data-sai-celular="0.25 0.29"><strong>Planos longos.</strong> A imagem fica parada o tempo de a criança olhar de verdade.</li>
-        <li data-entra="0.29 0.37" data-sai-celular="0.42 0.46"><strong>Som baixo e sem susto.</strong> Nada de grito, buzina ou efeito estourando.</li>
-        <li data-entra="0.46 0.54" data-sai-celular="0.59 0.63"><strong>Histórias do dia a dia.</strong> Passear, esperar, plantar, comer junto.</li>
-        <li data-entra="0.63 0.71"><strong>Começo, meio e fim.</strong> E, no fim, um convite para desligar e brincar.</li>
-      </ul>
-      <p class="aos-pais" data-entra="0.72 0.88"><strong>Para você, que cuida.</strong> Às vezes a gente precisa de quinze minutos para o jantar, o banho ou um respiro. Fizemos um desenho para esse tempo: ritmo lento, som baixo e nada de cortes rápidos.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 4. Episódios e Abecedário de Virtudes -->
-<section id="episodios" class="bloco bloco-episodios" aria-labelledby="t-episodios">
-  <div class="largura">
-    <h2 id="t-episodios">Episódios</h2>
-    <p class="chamada">Episódios novos aos sábados de manhã. Cada história acontece num mini-mundo da família.</p>
-    <ul class="mundos">
-      <li class="cartao c-azul">
-        <span class="selo">Episódio 1 · estreia em 28 de novembro</span>
-        <h3>Vila das Rodas</h3>
-        <p>Kikico passeia com Tião e Nina e conhece os carrinhos de madeira que moram lá, como a Dona Lila.</p>
-      </li>
-      <li class="cartao c-salvia">
-        <span class="selo">Em breve</span>
-        <h3>A Fazenda</h3>
-        <p>Bichos, terra molhada e o tempo devagar do campo.</p>
-      </li>
-      <li class="cartao c-rosa">
-        <span class="selo">Em breve</span>
-        <h3>A Casa dos Avós</h3>
-        <p>Colo, mesa posta e as histórias de quem chegou antes.</p>
-      </li>
+    <ul class="pontos">
+      <li data-rev><strong>Planos longos.</strong> Dá tempo de olhar, apontar, comentar.</li>
+      <li data-rev style="--d:.08s"><strong>Poucas coisas na tela.</strong> Uma ideia de cada vez.</li>
+      <li data-rev style="--d:.16s"><strong>Histórias do dia a dia.</strong> Passear, esperar, plantar, comer junto.</li>
     </ul>
-
   </div>
 </section>
 
-<!-- 4b. Abecedário de Virtudes -->
-<section id="abecedario" class="bloco bloco-abc" aria-labelledby="t-abc">
-  <div class="largura">
-    <div class="abc">
-      <img class="abc-cena" src="assets/abc.webp" srcset="assets/abc-960.webp 960w, assets/abc.webp 1672w" sizes="(min-width: 761px) 560px, 100vw" width="1672" height="941" alt="Nina brincando entre três puffs vivos nas formas das letras A, B e C." loading="lazy">
-      <div class="abc-texto">
-        <h2 id="t-abc">Abecedário de Virtudes</h2>
-        <p>Cada letra traz uma virtude, descoberta num gesto pequeno, sem sermão. A história termina com uma quadrinha cantada.</p>
-        <ul class="letras">
-          <li class="letra l1"><b aria-hidden="true">A</b><span><span class="so-leitor">A de </span>Amizade</span></li>
-          <li class="letra l2"><b aria-hidden="true">P</b><span><span class="so-leitor">P de </span>Paciência</span></li>
-          <li class="letra l3"><b aria-hidden="true">O</b><span><span class="so-leitor">O de </span>Obediência</span></li>
-          <li class="letra l4"><b aria-hidden="true">G</b><span><span class="so-leitor">G de </span>Gratidão</span></li>
-          <li class="letra l5"><b aria-hidden="true">Z</b><span><span class="so-leitor">Z de </span>Zelo</span></li>
-        </ul>
+<!-- 4. Seu momento do dia -->
+<section id="momento" class="bloco" aria-labelledby="t-momento">
+  <div class="miolo">
+    <p class="sobretitulo" data-rev>Cada hora do dia tem um jeito</p>
+    <h2 id="t-momento" data-rev>Qual é o seu momento agora?</h2>
+    <div class="fichas" role="radiogroup" aria-label="Momento do dia" data-rev>
+      <button class="ficha" role="radio" aria-checked="true" data-m="manha" type="button"><span aria-hidden="true">☕</span> Manhã corrida</button>
+      <button class="ficha" role="radio" aria-checked="false" data-m="jantar" type="button"><span aria-hidden="true">🍲</span> Antes do jantar</button>
+      <button class="ficha" role="radio" aria-checked="false" data-m="carro" type="button"><span aria-hidden="true">🚗</span> Viagem de carro</button>
+      <button class="ficha" role="radio" aria-checked="false" data-m="dormir" type="button"><span aria-hidden="true">🌙</span> Hora de dormir</button>
+    </div>
+    <div class="painel-momento" id="painel-momento" aria-live="polite" data-rev>
+      <div class="pm-arte"><img id="pm-img" src="assets/sala-960.webp" alt="" width="960" height="540"></div>
+      <div class="pm-texto">
+        <p class="pm-selo" id="pm-selo">Mini Mundo do Kikico · estreia em breve</p>
+        <h3 id="pm-titulo">Histórias do dia a dia</h3>
+        <p id="pm-desc">Episódios longos com Kikico, Nina e Tião. Dê o play, tome o café ainda quente e volte quando o final chegar.</p>
+        <p class="pm-dica" id="pm-dica"><b>Dica:</b> sente ao lado nos primeiros minutos e comente o que aparece. Depois, a criança segue sozinha.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 5. Onde assistir -->
-<section id="assistir" class="cena cena-noite" data-cena aria-labelledby="t-assistir">
-  <div class="palco">
-    <img class="fundo-noite" src="assets/noite.webp" srcset="assets/noite-960.webp 960w, assets/noite.webp 1672w" sizes="100vw" width="1672" height="941" alt="A sala à noite, com o abajur aceso; os puffs, Kikico, Nina e Tião dormem juntos no tapete." loading="lazy">
-    <div class="noite-texto" data-entra="0.1 0.4">
-      <h2 id="t-assistir">Onde assistir</h2>
-      <p>Episódios longos no YouTube. Pedacinhos e conversa com os pais no Instagram.</p>
-      <div class="botoes">
-        <a class="botao" href="https://www.youtube.com/@minimundodokikico" rel="noopener">YouTube · @minimundodokikico</a>
-        <a class="botao botao-claro" href="https://www.instagram.com/minimundodokikico/" rel="noopener">Instagram · @minimundodokikico</a>
+<!-- 5. Pausa dos pais: cronômetro e respiração -->
+<section id="pausa" class="bloco bloco-claro" aria-labelledby="t-pausa">
+  <div class="miolo">
+    <p class="sobretitulo" data-rev>Os quinze minutos são seus também</p>
+    <h2 id="t-pausa" data-rev>Pausa dos pais</h2>
+    <p class="lead" data-rev>Duas ferramentas pequenas para usar enquanto o desenho roda. Sem cadastro, sem anúncio.</p>
+    <div class="duas">
+      <!-- cronômetro -->
+      <div class="ferramenta" data-rev>
+        <h3>Seus 15 minutos</h3>
+        <div class="relogio" id="relogio">
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="r-fundo" cx="100" cy="100" r="88"/>
+            <circle class="r-prog" id="r-prog" cx="100" cy="100" r="88" transform="rotate(-90 100 100)"/>
+          </svg>
+          <div class="r-centro">
+            <output class="r-tempo" id="r-tempo" aria-live="off">15:00</output>
+            <span class="r-dica" id="r-dica">Toque em começar e solte o ar.</span>
+          </div>
+        </div>
+        <div class="duracoes" role="group" aria-label="Duração">
+          <button type="button" class="mini" data-min="5" aria-pressed="false">5 min</button>
+          <button type="button" class="mini" data-min="10" aria-pressed="false">10 min</button>
+          <button type="button" class="mini" data-min="15" aria-pressed="true">15 min</button>
+        </div>
+        <div class="botoes botoes-centro">
+          <button class="botao" id="r-iniciar" type="button">Começar</button>
+          <button class="botao botao-claro" id="r-zerar" type="button">Zerar</button>
+        </div>
       </div>
+      <!-- respiração -->
+      <div class="ferramenta" data-rev style="--d:.12s">
+        <h3>Respire com o Kikico</h3>
+        <div class="respira" id="respira">
+          <div class="r-anel a3"></div><div class="r-anel a2"></div><div class="r-anel a1"></div>
+          <div class="r-bola"><img src="assets/avatar.webp" width="120" height="120" alt=""></div>
+        </div>
+        <p class="respira-texto" id="respira-texto" aria-live="polite">Um minuto só para você.</p>
+        <div class="botoes botoes-centro">
+          <button class="botao" id="respira-botao" type="button" aria-pressed="false">Respirar</button>
+        </div>
+        <p class="miudo">Inspire pelo nariz por 4 segundos, solte devagar por 6. Repita.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Conversa depois do desenho -->
+<section id="conversa" class="bloco" aria-labelledby="t-conversa">
+  <div class="miolo">
+    <p class="sobretitulo" data-rev>Quando o desenho acabar</p>
+    <h2 id="t-conversa" data-rev>Uma pergunta para fazer junto</h2>
+    <p class="lead" data-rev>O Abecedário das Virtudes (em preparo) vai de A a Z. Escolha uma e tire uma pergunta simples para conversar com seu pequeno.</p>
+    <div class="letras" role="tablist" aria-label="Virtudes" data-rev>
+      <button class="letra" role="tab" aria-selected="true" data-v="amizade" type="button"><b aria-hidden="true">A</b><span>Amizade</span></button>
+      <button class="letra" role="tab" aria-selected="false" data-v="paciencia" type="button"><b aria-hidden="true">P</b><span>Paciência</span></button>
+      <button class="letra" role="tab" aria-selected="false" data-v="obediencia" type="button"><b aria-hidden="true">O</b><span>Obediência</span></button>
+      <button class="letra" role="tab" aria-selected="false" data-v="gratidao" type="button"><b aria-hidden="true">G</b><span>Gratidão</span></button>
+      <button class="letra" role="tab" aria-selected="false" data-v="zelo" type="button"><b aria-hidden="true">Z</b><span>Zelo</span></button>
+    </div>
+    <div class="carta-palco" data-rev>
+      <div class="carta" id="carta" role="tabpanel" aria-live="polite">
+        <div class="carta-frente">
+          <p class="carta-letra" id="carta-letra" aria-hidden="true">A</p>
+          <p class="carta-pergunta" id="carta-pergunta">Quem brincou com o Kikico hoje? E com quem você brinca?</p>
+        </div>
+      </div>
+      <button class="botao" id="outra" type="button">Outra pergunta</button>
+    </div>
+  </div>
+</section>
+
+<!-- 7. A turma -->
+<section id="turma" class="bloco bloco-claro" aria-labelledby="t-turma">
+  <div class="miolo">
+    <p class="sobretitulo" data-rev>Quem mora nessa sala</p>
+    <h2 id="t-turma" data-rev>Conheça a turma</h2>
+    <div class="turma">
+      <figure class="bicho" data-rev tabindex="0">
+        <div class="bicho-arte"><img style="--h:330px" src="assets/papai.webp" width="294" height="700" alt="Papai, um homem de barba grisalha, camiseta azul-marinho e calça cinza, sorrindo de braços relaxados." loading="lazy"></div>
+        <figcaption><h3>Papai</h3><p>Calmo e de braço aberto. Conta o que está vendo, espera o tempo do Kikico e é quem puxa o abraço no fim do dia.</p></figcaption>
+      </figure>
+      <figure class="bicho" data-rev style="--d:.08s" tabindex="0">
+        <div class="bicho-arte"><img style="--h:310px" src="assets/mamae.webp" width="216" height="700" alt="Mamãe, uma mulher de cabelo preto solto e óculos, de blusa clara e short verde, sorrindo." loading="lazy"></div>
+        <figcaption><h3>Mamãe</h3><p>Escuta, pergunta e abraça. Faz o dia caber numa história com começo, meio e fim.</p></figcaption>
+      </figure>
+      <figure class="bicho" data-rev style="--d:.16s" tabindex="0">
+        <div class="bicho-arte"><img style="--h:200px" src="assets/kikico.webp" width="460" height="878" alt="Kikico, um menino de cabelo preto cacheado e jardineira caramelo, acenando." loading="lazy"></div>
+        <figcaption><h3>Kikico</h3><p>Tem 2 anos e quer saber de tudo: rodas, bichos, chuva, o feijão que brota. Puxa os carrinhos por um barbante.</p></figcaption>
+      </figure>
+      <figure class="bicho" data-rev style="--d:.24s" tabindex="0">
+        <div class="bicho-arte"><img style="--h:190px" src="assets/nina.webp" width="480" height="803" alt="Nina, uma cachorrinha golden clara com um lacinho lilás, sentada e sorrindo." loading="lazy"></div>
+        <figcaption><h3>Nina</h3><p>A cachorrinha sempre acesa, de lacinho lilás. Corre na frente e volta para ver se todo mundo vem junto.</p></figcaption>
+      </figure>
+      <figure class="bicho" data-rev style="--d:.32s" tabindex="0">
+        <div class="bicho-arte"><img style="--h:235px" src="assets/tiao-sentado.webp" width="273" height="500" alt="Tião, um golden grandão de bandana azul-acinzentada, sentado e sorrindo." loading="lazy"></div>
+        <figcaption><h3>Tião</h3><p>O grandão de bandana. Desengonçado e sem pressa: senta, espera, observa. É quem ensina a calma.</p></figcaption>
+      </figure>
+    </div>
+  </div>
+</</section>
+
+<!-- 7b. Feito em família -->
+<section id="familia" class="bloco familia" aria-labelledby="t-familia">
+  <div class="miolo miolo-estreito">
+    <div class="selo-familia" data-rev aria-hidden="true">
+      <svg viewBox="0 0 120 120" width="120" height="120"><circle cx="60" cy="60" r="56" fill="#FDB324" opacity=".3"/><circle cx="60" cy="60" r="44" fill="none" stroke="#D45711" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round"/><path d="M60 82S34 66 34 47c0-9 7-15 15-15 5 0 9 2 11 6 2-4 6-6 11-6 8 0 15 6 15 15 0 19-26 35-26 35z" fill="#DA6B55"/></svg>
+    </div>
+    <p class="sobretitulo" data-rev>Quem faz o Mini Mundo</p>
+    <h2 id="t-familia" data-rev>Preparado e desenvolvido por uma família, para famílias</h2>
+    <p class="familia-texto" data-rev>O Mini Mundo do Kikico não saiu de uma grande produtora. Nasceu dentro de uma família que também precisa de meia hora de calma, e que também se preocupa com o que o filho assiste. Por isso cada passo, da história ao desenho, do som ao site, é pensado por pais, olhando para outros pais.</p>
+    <div class="familia-pontos">
+      <div class="familia-ponto" data-rev style="--d:.05s"><h3>Feito por pais</h3><p>Quem decide o ritmo, o som e o final de cada episódio é quem também dá o jantar e conta a história de dormir.</p></div>
+      <div class="familia-ponto" data-rev style="--d:.15s"><h3>Para a sua família</h3><p>Pensado para o seu dia: o carro, o café, o banho, a hora de desacelerar. Do jeito que a gente gostaria de encontrar.</p></div>
+      <div class="familia-ponto" data-rev style="--d:.25s"><h3>Cuidado de casa</h3><p>Sem pressa, sem susto, sem rastreador. Só o que a gente colocaria na frente do nosso próprio filho.</p></div>
+    </div>
+    <p class="familia-assina" data-rev>Feito em família, com carinho, para famílias.</p>
+  </div>
+</section>
+
+<!-- 8. Perguntas dos pais -->
+<section id="duvidas" class="bloco" aria-labelledby="t-duvidas">
+  <div class="miolo miolo-estreito">
+    <p class="sobretitulo" data-rev>Antes de dar o play</p>
+    <h2 id="t-duvidas" data-rev>Perguntas que os pais fazem</h2>
+    <div class="faq" data-rev>
+      <details open><summary>Para que idade é?</summary><p>Pensamos em crianças de 1 a 4 anos. Mas a regra de ouro é sua: você conhece o seu filho. Assista a um episódio junto e veja como ele reage.</p></details>
+      <details><summary>Posso deixar a criança assistir sozinha?</summary><p>O desenho foi feito para ser seguro e sem sustos, mas nada substitui a presença. Nos primeiros minutos, sente ao lado e comente. Depois, fique por perto.</p></details>
+      <details><summary>Quanto tempo dura cada episódio?</summary><p>A ideia é caber em torno de 15 minutos, com começo, meio e fim claros. No final, o próprio desenho convida a desligar e brincar.</p></details>
+      <details><summary>Isso substitui brincar?</summary><p>Não, e não quer ser. Cada família decide o tempo de tela que faz sentido. O Mini Mundo existe para ser um complemento tranquilo, que termina e devolve a criança ao mundo real.</p></details>
+      <details><summary>O site coleta dados do meu filho?</summary><p>Não. Este site não usa cookies, rastreadores nem formulários. A música e as ferramentas rodam só no seu aparelho. A única coisa guardada é a sua escolha de ligar ou desligar o som.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Noite -->
+<section id="assistir" class="noite" aria-labelledby="t-assistir">
+  <div class="noite-ceu" aria-hidden="true"><div class="estrelas e-noite"></div><span class="lua"></span></div>
+  <img class="fundo-noite" src="assets/noite.webp" srcset="assets/noite-960.webp 960w, assets/noite.webp 1672w" sizes="100vw" width="1672" height="941" alt="A sala à noite, com o abajur aceso; os puffs, Kikico, Nina e Tião dormem juntos no tapete.">
+  <div class="noite-texto" data-rev>
+    <h2 id="t-assistir">Boa noite, e bom descanso.</h2>
+    <p>Episódios longos no YouTube. Pedacinhos e conversa com os pais no Instagram.</p>
+    <div class="botoes botoes-centro">
+      <a class="botao" href="https://www.youtube.com/@minimundodokikico" rel="noopener">YouTube · @minimundodokikico</a>
+      <a class="botao botao-claro" href="https://www.instagram.com/minimundodokikico/" rel="noopener">Instagram · @minimundodokikico</a>
     </div>
   </div>
 </section>
@@ -183,6 +333,7 @@
   <p class="miudo">Este site não usa cookies, rastreadores nem formulários. © 2026 Mini Mundo do Kikico · feito de família para família.</p>
 </footer>
 
-<script src="rolagem.js?v=3" defer></script>
+<script src="musica.js" defer></script>
+<script src="app.js" defer></script>
 </body>
 </html>
